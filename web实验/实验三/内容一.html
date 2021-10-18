@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var text1 = '{ "学生姓名" : "xxl" ,"学生年龄" : "b", "学生所在学院" : {"学院名称" : "e", "学院坐落地址" : "f" } }'
+		</script>
+		<input type="text" name="" id="s1" value="" />
+	</body>
+	<script type="text/javascript">
+		var stu1 = '{ "学生姓名" : "ltx" ,"学生年龄" : "b", "学生所在学院" : {"学院名称" : "e", "学院坐落地址" : "f" } }'
+		var stu2 = '{ "学生姓名" : "xxl" ,"学生年龄" : "b", "学生所在学院" : {"学院名称" : "e", "学院坐落地址" : "f" } }'
+		var tmp = JSON.parse(stu1);
+		document.getElementById("s1").value = tmp.学生姓名;
+	</script>
+</html>

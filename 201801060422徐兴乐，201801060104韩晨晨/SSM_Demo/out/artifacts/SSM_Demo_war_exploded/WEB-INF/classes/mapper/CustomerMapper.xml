@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE  mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sdust.dao.CustomerDao">
+    <select id="selectCustomer" resultType="cn.sdust.pojo.Customer">
+        select *
+        from customer
+    </select>
+    <select id="selectCustomerA" parameterType="cn.sdust.pojo.searchParams" resultType="cn.sdust.pojo.Customer">
+        select *
+        from customer
+
+        <where>
+            <if test="searchType != null and searchType != 0">
+                AND disA = #{searchType}
+            </if>
+
+            <if test="categoryId != null and categoryId != -1">
+                AND categoryId = #{categoryId}
+            </if>
+
+            <if test='ownerUserId != null and ownerUserId != ""'>
+                AND encodedOwnerUserId = #{ownerUserId}
+            </if>
+
+<!--            <if test="startCreateDate != null and startCreateDate != 0">-->
+<!--                AND Date(createDate) >= #{startCreateDate}-->
+<!--            </if>-->
+
+<!--            <if test="endCreateDate != null and endCreateDate != 0">-->
+<!--                AND #{endCreateDate} >=  Date(createDate)-->
+<!--            </if>-->
+
+            <if test='searchFieldId == "province" and searchFieldId != null and searchKey!=null and searchKey!=""'>
+                AND province = #{searchKey}
+            </if>
+            <if test='searchFieldId == "name" and searchFieldId != null and searchKey!=null and searchKey!=""'>
+                AND name = #{searchKey}
+            </if>
+            <if test='searchFieldId == "city" and searchFieldId != null and searchKey!=null and searchKey!=""'>
+                AND city = #{searchKey}
+            </if>
+
+        </where>
+        ORDER BY
+        <choose>
+            <when test='sortField!=null and sortField!="" '>
+                ${sortField} asc
+            </when>
+            <otherwise>
+                encodedId asc
+            </otherwise>
+        </choose>
+    </select>
+    <select id="selectCustomerbyName" resultType="cn.sdust.pojo.Customer">
+    select *
+    from customer
+    where name = #{name}
+    </select>
+    <update id="updateCustomerUser">
+        update customer
+        set encodedOwnerUserId = #{1}
+        where encodedId=#{0}
+    </update>
+    <select id="findUserById" resultType="String">
+        select encodedOwnerUserId
+        from customer
+        where encodedId=#{id}
+    </select>
+    <insert id="InsertCustomer">
+        insert
+        into customer (name,encodedOwnerUserId,categoryId,province,city,nextContactDate,createDate,encodedCreateUserId,assignDate,lastContactDate,encodedLastContactUserId,disA)
+        values (#{name},#{encodedOwnerUserId},#{categoryId},#{province},#{city},#{nextContactDate},#{createDate},#{encodedCreateUserId},#{assignDate},#{lastContactDate},#{encodedLastContactUserId},#{disA})
+    </insert>
+    <delete id="deleteCustomer">
+        delete
+        from customer
+        where encodedId=#{encodedId}
+    </delete>
+<!--    <update id="updateCustomerCategory" parameterType="cn.sdust.pojo.Customer">-->
+<!--        update student set name=#{name},tele=#{tele} where id=#{id}-->
+<!--    </update>-->
+    <update id="updateCustomerCategory" parameterType="cn.sdust.pojo.Customer">
+        update customer
+        set categoryId=#{1}
+        where encodedId=#{0}
+    </update>
+    <update id="updateCustomerNextTime" >
+        update customer
+        set nextContactDate=#{1}
+        where encodedId=#{0}
+    </update>
+    <update id="updateDisA" >
+        update customer
+        set disA = #{1}
+        where encodedId=#{0}
+    </update>
+</mapper>

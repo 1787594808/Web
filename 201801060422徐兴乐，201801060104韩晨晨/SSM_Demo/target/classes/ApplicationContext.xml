@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="cn"/>
+    <!-- 引入配置文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${initialSize}"></property>
+        <!-- 连接池最大数量 -->
+        <property name="maxActive" value="${maxActive}"></property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle" value="${maxIdle}"></property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${minIdle}"></property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${maxWait}"></property>
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描mapping.xml文件 -->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+        <!--        <property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+
+    </bean>
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.sdust.dao"/>
+        <!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>-->
+    </bean>
+<!--    <bean id="mappingJacksonHttpMessageConverter"-->
+<!--          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" >-->
+<!--        <property name="supportedMediaTypes">-->
+<!--            <list>-->
+<!--                <value>application/json;charset=UTF-8</value>-->
+<!--                <value>text/html;charset=UTF-8</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+</beans>
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+        <!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+        <!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+        <!--       xmlns:context="http://www.springframework.org/schema/context"-->
+        <!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">-->
+
+        <!--    &lt;!&ndash;开启组件注解扫描&ndash;&gt;-->
+        <!--    <context:component-scan base-package="cn.sdust">-->
+        <!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--    </context:component-scan>-->
+        <!--    &lt;!&ndash;引入数据库配置文件&ndash;&gt;-->
+        <!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
+        <!--    &lt;!&ndash;配置c3p0数据源&ndash;&gt;-->
+        <!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+        <!--        <property name="driverClass" value="${driver}"/>-->
+        <!--        <property name="jdbcUrl" value="${url}"/>-->
+        <!--        <property name="user" value="${username}"/>-->
+        <!--        <property name="password" value="${password}"/>-->
+        <!--    </bean>-->
+        <!--    &lt;!&ndash;配置SqlSessionFactory&ndash;&gt;-->
+        <!--    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--        <property name="dataSource" ref="dataSource"/>-->
+        <!--        <property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--    </bean>-->
+        <!--    &lt;!&ndash;开启动态扫描dao层接口&ndash;&gt;-->
+        <!--    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--        <property name="basePackage" value="com.ssm.dao"/>-->
+        <!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>-->
+        <!--    </bean>-->
+        <!--    &lt;!&ndash;事务&ndash;&gt;-->
+        <!--    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--        <property name="dataSource" ref="dataSource"/>-->
+        <!--    </bean>-->
+        <!--</beans>-->

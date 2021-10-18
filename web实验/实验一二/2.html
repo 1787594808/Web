@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>333</title>
+	</head>
+	<body>
+		<style type="text/css">
+			.my{
+				width: 1000px;
+				height: 2000px;
+				margin: 0 auto;
+			}
+		</style>
+		<form action="">
+			<table border="1" class="my" cellspacing="0" bgcolor="#aa9e17">
+				<tr>
+					<td style='text-align:right'><font color="red">*</font> 姓名</td>
+					<td>
+						&nbsp
+						<input type="text"/>
+						<font color="red">*</font>出生日期 
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<script>
+								 for(var i = 1951;i<2020;i++){
+									   document.write("<option value="+i+">"+i+"</option>");
+								 }
+							</script>
+						</select>
+						年
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<script>
+								 for(var i = 1;i<=12;i++){
+									   document.write("<option value="+i+">"+i+"</option>");
+								 }
+							</script>
+						</select>
+						月
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<script>
+								 for(var i = 1;i<=31;i++){
+									   document.write("<option value="+i+">"+i+"</option>");
+								 }
+							</script>
+						</select>
+						<br>&nbsp
+						日
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'><font color="red">*</font> 身份证号码</td>
+					<td> &nbsp <input type="text"/> 长度15位或18位，必须和出生日期、性别相对应</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'><font color="red">*</font> 性别</td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">男</option>
+							<option value ="2">女</option>
+						</select>
+						&nbsp &nbsp民族&nbsp 
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">汉族</option>
+							<option value ="2">少数民族</option>
+							<option value ="3">其他</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>婚姻状况</td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">未婚</option>
+							<option value ="2">已婚</option>
+						</select>
+						&nbsp &nbsp政治面貌&nbsp 
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">中共党员</option>
+							<option value ="2">民族党派</option>
+							<option value ="3">共青团员</option>
+							<option value ="4">群众</option>
+							<option value ="5">其他</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style='text-align:right'>户口所在地</td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option>--请输入--</option>
+							<option>J江苏省</option>
+							<option>N南京市</option>
+								<option>&nbsp &nbsp &nbsp 南京市玄武区</option>
+								<option>&nbsp &nbsp &nbsp 南京市鼓楼区</option>
+								<option>&nbsp &nbsp &nbsp 南京市白下区</option>
+								<option>&nbsp &nbsp &nbsp 南京市建邺区</option>
+								<option>&nbsp &nbsp &nbsp 南京市秦淮区</option>
+								<option>&nbsp &nbsp &nbsp 南京市下关区</option>
+								<option>&nbsp &nbsp &nbsp 南京市栖霞区</option>
+								<option>&nbsp &nbsp &nbsp 南京市雨花台区</option>
+								<option>&nbsp &nbsp &nbsp 南京市浦口区</option>
+								<option>&nbsp &nbsp &nbsp 南京市江宁区</option>
+								<option>&nbsp &nbsp &nbsp 南京市六合区</option>
+								<option>&nbsp &nbsp &nbsp 南京市溧水区</option>
+								<option>&nbsp &nbsp &nbsp 南京市高淳区</option>
+							<option>M马鞍市</option>
+							<option>W无锡市</option>
+							<option>W无锡江阴市</option>
+							<option>W无锡宜兴市</option>
+							<option>X徐州市</option>
+							<option>C常州市</option>
+							<option>S苏州市</option>
+							<option>C常熟市</option>
+							<option>N南通市</option>
+							<option>L连云港市</option>
+							<option>H淮阴市</option>
+							<option>Y盐城市</option>
+							<option>Y扬州市</option>
+							<option>Z镇江市</option>
+							<option>S宿迁市</option>
+							<option>T泰州市</option>
+							<option>A安徽省</option>
+							<option>H合肥市</option>
+							<option>W芜湖市</option>
+							<option>T蚌埠市</option>
+							<option>S上海市</option>
+							<option>Z浙江省</option>
+							<option>H杭州市</option>
+							<option>N宁波市</option>
+							<option>W温州市</option>
+							<option>B北京市</option>
+							<option>T天津市</option>
+							<option>H河北省</option>
+							<option>S石家庄市</option>
+							<option>T泰州市</option>
+							<option>S山西省</option>
+							<option>T太原市</option>
+							<option>N内蒙古自治区</option>
+							<option>H呼和浩特市</option>
+							<option>L辽宁市</option>
+							<option>S沈阳市</option>
+							<option>D大连市</option>
+							<option>J吉林省</option>
+							<option>C长春市</option>
+							<option>J吉林市</option>
+							<option>H黑龙江省</option>
+							<option>H哈尔滨市</option>
+							<option>F福建省</option>
+							<option>F福州市</option>
+							<option>X厦门市</option>
+							<option>J江西市</option>
+							<option>N南昌市</option>
+							<option>S山东省</option>
+							<option>J济南市</option>
+							<option>Q青岛市</option>
+							<option>H河北省</option>
+							<option>Z郑州市</option>
+							<option>H湖北省</option>
+							<option>W武汉市</option>
+							<option>H湖南省</option>
+							<option>C长沙市</option>
+							<option>G广东省</option>
+							<option>G广州市</option>
+							<option>S深圳市</option>
+							<option>Z珠海市</option>
+							<option>G广西壮族自治区</option>
+							<option>N南宁市</option>
+							<option>H海南省</option>
+							<option>H海口市</option>
+							<option>S四川省</option>
+							<option>C成都市</option>
+							<option>C重庆市</option>
+							<option>G贵州省</option>
+							<option>G贵阳市</option>
+							<option>Y云南市</option>
+							<option>K昆明市</option>
+							<option>X西藏自治区</option>
+							<option>L拉萨市</option>
+							<option>S陕西省</option>
+							<option>X西安市</option>
+							<option>G甘肃省</option>
+							<option>L兰州市</option>
+							<option>Q青海省</option>
+							<option>X西宁市</option>
+							<option>N宁夏回族自治区</option>
+							<option>Y银川市</option>
+							<option>X新疆维吾尔族自治区</option>
+							<option>W乌鲁木齐市</option>
+							<option>T台湾省</option>
+							<option>T台北地区</option>
+							<option>X香港、澳门地区</option>
+							<option>X香港特别行政特区</option>
+							<option>A澳门特别行政特区</option>
+							<option>G国外</option>
+							<option>B不限（面议）</option>
+						</select>
+						&nbsp
+						<select type="text">
+							<option>--请输入--</option>
+							<option>J江苏省</option>
+							<option>N南京市</option>
+								<option>&nbsp &nbsp &nbsp 南京市玄武区</option>
+								<option>&nbsp &nbsp &nbsp 南京市鼓楼区</option>
+								<option>&nbsp &nbsp &nbsp 南京市白下区</option>
+								<option>&nbsp &nbsp &nbsp 南京市建邺区</option>
+								<option>&nbsp &nbsp &nbsp 南京市秦淮区</option>
+								<option>&nbsp &nbsp &nbsp 南京市下关区</option>
+								<option>&nbsp &nbsp &nbsp 南京市栖霞区</option>
+								<option>&nbsp &nbsp &nbsp 南京市雨花台区</option>
+								<option>&nbsp &nbsp &nbsp 南京市浦口区</option>
+								<option>&nbsp &nbsp &nbsp 南京市江宁区</option>
+								<option>&nbsp &nbsp &nbsp 南京市六合区</option>
+								<option>&nbsp &nbsp &nbsp 南京市溧水区</option>
+								<option>&nbsp &nbsp &nbsp 南京市高淳区</option>
+							<option>M马鞍市</option>
+							<option>W无锡市</option>
+							<option>W无锡江阴市</option>
+							<option>W无锡宜兴市</option>
+							<option>X徐州市</option>
+							<option>C常州市</option>
+							<option>S苏州市</option>
+							<option>C常熟市</option>
+							<option>N南通市</option>
+							<option>L连云港市</option>
+							<option>H淮阴市</option>
+							<option>Y盐城市</option>
+							<option>Y扬州市</option>
+							<option>Z镇江市</option>
+							<option>S宿迁市</option>
+							<option>T泰州市</option>
+							<option>A安徽省</option>
+							<option>H合肥市</option>
+							<option>W芜湖市</option>
+							<option>T蚌埠市</option>
+							<option>S上海市</option>
+							<option>Z浙江省</option>
+							<option>H杭州市</option>
+							<option>N宁波市</option>
+							<option>W温州市</option>
+							<option>B北京市</option>
+							<option>T天津市</option>
+							<option>H河北省</option>
+							<option>S石家庄市</option>
+							<option>T泰州市</option>
+							<option>S山西省</option>
+							<option>T太原市</option>
+							<option>N内蒙古自治区</option>
+							<option>H呼和浩特市</option>
+							<option>L辽宁市</option>
+							<option>S沈阳市</option>
+							<option>D大连市</option>
+							<option>J吉林省</option>
+							<option>C长春市</option>
+							<option>J吉林市</option>
+							<option>H黑龙江省</option>
+							<option>H哈尔滨市</option>
+							<option>F福建省</option>
+							<option>F福州市</option>
+							<option>X厦门市</option>
+							<option>J江西市</option>
+							<option>N南昌市</option>
+							<option>S山东省</option>
+							<option>J济南市</option>
+							<option>Q青岛市</option>
+							<option>H河北省</option>
+							<option>Z郑州市</option>
+							<option>H湖北省</option>
+							<option>W武汉市</option>
+							<option>H湖南省</option>
+							<option>C长沙市</option>
+							<option>G广东省</option>
+							<option>G广州市</option>
+							<option>S深圳市</option>
+							<option>Z珠海市</option>
+							<option>G广西壮族自治区</option>
+							<option>N南宁市</option>
+							<option>H海南省</option>
+							<option>H海口市</option>
+							<option>S四川省</option>
+							<option>C成都市</option>
+							<option>C重庆市</option>
+							<option>G贵州省</option>
+							<option>G贵阳市</option>
+							<option>Y云南市</option>
+							<option>K昆明市</option>
+							<option>X西藏自治区</option>
+							<option>L拉萨市</option>
+							<option>S陕西省</option>
+							<option>X西安市</option>
+							<option>G甘肃省</option>
+							<option>L兰州市</option>
+							<option>Q青海省</option>
+							<option>X西宁市</option>
+							<option>N宁夏回族自治区</option>
+							<option>Y银川市</option>
+							<option>X新疆维吾尔族自治区</option>
+							<option>W乌鲁木齐市</option>
+							<option>T台湾省</option>
+							<option>T台北地区</option>
+							<option>X香港、澳门地区</option>
+							<option>X香港特别行政特区</option>
+							<option>A澳门特别行政特区</option>
+							<option>G国外</option>
+							<option>B不限（面议）</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td style='text-align:right'>身高</td>
+					<td>
+						&nbsp
+						<input type="text"/>
+						单位：厘米
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>视力状况</td>
+					<td>
+						&nbsp
+						<input type="text"/>
+						请用文字描述您的视力情况
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>现工作单位名称</td>
+					<td>
+						&nbsp
+						<input type="text"/> <br>
+						&nbsp
+						<input type="checkbox"/> 申请职位（发送简历）时发送现工作单位名称(不推荐选择) 
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'><font color="red">*</font> 现从事工作职位名称</td>
+					<td> <input type="text"/> 如:公司部门经理 </td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>现职称级别</td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">学员</option>
+							<option value ="2">初级</option>
+							<option value ="3">中级</option>
+							<option value ="4">副高</option>
+							<option value ="5">高级</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>现从事工作级别 </td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option value ="0">--请选择--</option>
+							<option value ="1">高级决策层（CEO,EVP,GM...）</option>
+							<option value ="2">高级职位（管理类）</option>
+							<option value ="3">高级职位（非管理类）</option>
+							<option value ="4">中级职位（两年以上工作经验）</option>
+							<option value ="5">初级职位（两年以下工作经验）</option>
+							<option value ="6">学生</option>
+						</select> 
+						<img src="2.gif"/>
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'><font color="red">*</font> 现从事职位类别</td>
+					<td>
+					&nbsp
+					<select type="text">
+					<option>--请选择--</option>
+					<option>计算机软件</option>
+					<option>销售管理</option>
+					<option>市场/营销</option>
+					<option>销售人员</option>
+					<option>计算机硬件</option>
+					<option>互联网开发及应用</option>
+					<option>IT-管理。</option>
+					<option>IT-品管、技术支持及其他</option>
+					<option>通信技术</option>
+					<option>电子/电器/半导体/仪器仪表</option>
+					<option>财务/审计/税务</option>
+					<option>工程/机械/能源</option>
+					<option>人力资源</option>
+					<option>高级管理</option>
+					<option>物流/仓储</option>
+					<option>艺术/平面/动画设计</option>
+					<option>科研人员</option>
+					<option>律师/法务</option>
+					<option>教师</option>
+					<option>医院/医疗/护理</option>
+					<option>咨询/顾问</option>
+					<option>交通运输服务</option>
+					<option>翻译</option>
+					<option>建筑工程/道桥/园艺</option>
+					<option>银行</option>
+					<option>行政/后勤</option>
+					<option>客服及技术支持</option>
+					<option>证券/金融/投资</option>
+					<option>保险</option>
+					<option>生产/营运</option>
+					<option>质量体系/安全/环境保护</option>
+					<option>技工</option>
+					<option>服装/纺织/皮革</option>
+					<option>采购</option>
+					<option>贸易</option>
+					<option>生物/化工/制药/医疗器械</option>
+					<option>广告</option>
+					<option>公关/媒介</option>
+					<option>影视/媒体</option>
+					<option>文字/媒体/写作</option>
+					<option>房地产</option>
+					<option>物业管理</option>
+					<option>餐饮/娱乐</option>
+					<option>酒店/旅游</option>
+					<option>美容/保健</option>
+					<option>百货/连锁/零售服务</option>
+					<option>保安/家政/其他服务</option>
+					<option>毕业生类</option>
+					<option>其他</option>
+					</select>
+					&nbsp
+					<select type="text">
+						<option>--请选择--</option>
+						<option>IT-管理</option>
+						<option>首席执行官CTO</option>
+						<option>技术总监/经理</option>
+						<option>信息技术总监/主管</option>
+						<option>信息技术专员</option>
+						<option>项目总监CTO</option>
+						<option>项目经理</option>
+						<option>项目主管CTO</option>
+						<option>项目执行/协调人员</option>
+						<option>其他</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td style='text-align:right'>从事现职位年限</td>
+					<td>
+						&nbsp
+						<select type="text">
+							<option>--请选择--</option>
+							<option>应届大学生</option>
+							<script>
+								 for(var i = 1;i<=50;i++){
+									   if(i%10==0) document.write("<option value="+i+">"+"**"+i+"**"+"</option>");
+									   else document.write("<option value="+i+">"+i+"</option>");
+								 }
+							</script>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" align="center">
+						<input type="submit" value="保存以上修改" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

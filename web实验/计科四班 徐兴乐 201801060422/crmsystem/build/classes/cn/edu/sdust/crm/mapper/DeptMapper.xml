@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sdust.crm.mapper.DeptMapper">
+
+	<resultMap type="cn.edu.sdust.crm.domain.Dept" id="resultDept">
+        <id column="deptid" property="deptid" />
+        <result column="deptname" property="deptname" />
+		<result column="tel" property="tel" />
+    </resultMap>
+    
+	<select id="SelectAllDepts" resultMap="resultDept" >
+		SELECT *
+		FROM dept
+	</select>   
+	
+    <select id="SelectDeptsByParam" resultMap="resultDept"  parameterType="cn.edu.sdust.crm.domain.Dept" >
+		SELECT *
+		FROM dept
+		where 1 = 1		
+		<if test="deptname != null and deptname != ''">
+		    and  deptname = #{deptname}
+		</if>
+		<if test="deptaddress != null and deptaddress != ''">
+		    and  deptaddress = #{deptaddress}
+		</if>
+	</select>   
+	
+    <select id="SelectDeptById" resultMap="resultDept" parameterType="int">
+		SELECT *
+		FROM dept where deptid=#{id}
+	</select>   
+	
+	<insert id="InsertDept" parameterType="cn.edu.sdust.crm.domain.Dept">
+	insert into dept(deptid,deptname,deptaddress) values(#{deptid},#{deptname},#{deptaddress})
+	</insert>
+	
+	<delete id="DeleteDept" parameterType = "int">
+	delete from dept
+	where deptid = #{deptid}
+	</delete>
+	
+	<update id="UpdateDept" parameterType="cn.edu.sdust.crm.domain.Dept">
+	update dept
+	set deptname = #{deptname},deptaddress = #{deptaddress}
+	where deptid = #{deptid}
+	</update>
+
+</mapper>
